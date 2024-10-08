@@ -20,29 +20,34 @@
 
 ### Build & Run
 
+Replace `<YourName>` with your github ID, and replace `<Number>` with the chapter ID.
+
+Notice: `<Number>` is chosen from `[1,2,3,4,5,6,7,8]`
+
 ```bash
-# setup build&run environment first
-$ git clone https://github.com/LearningOS/rCore-Camp-Code-2024A.git
-$ cd rCore-Camp-Code-2024A
-$ git clone https://github.com/LearningOS/rCore-Tutorial-Test-2024A.git user
-$ git checkout ch$ID
+# 
+$ git clone git@github.com:LearningOS/2024a-rcore-<YourName>
+$ cd 2024a-rcore-<YourName>
+$ git clone git@github.com:LearningOS/rCore-Tutorial-Test-2024A user
+$ git checkout ch<Number>
 $ cd os
-# run OS in ch$ID
 $ make run
 ```
-Notice: $ID is from [1-9]
 
 ### Grading
 
+Replace `<YourName>` with your github ID, and replace `<Number>` with the chapter ID.
+
+Notice: `<Number>` is chosen from `[3,4,5,6,8]`
+
 ```bash
-# setup build&run environment first
-$ git clone https://github.com/LearningOS/rCore-Camp-Code-2024A.git
-$ cd rCore-Camp-Code-2024A
+# Replace <YourName> with your github ID 
+$ git clone git@github.com:LearningOS/2024a-rcore-<YourName>
+$ cd 2024a-rcore-<YourName>
 $ rm -rf ci-user
-$ git clone https://github.com/LearningOS/rCore-Tutorial-Checker-2024A.git ci-user
-$ git clone https://github.com/LearningOS/rCore-Tutorial-Test-2024A.git ci-user/user
-$ git checkout ch$ID
-# check&grade OS in ch$ID with more tests
-$ cd ci-user && make test CHAPTER=$ID
+$ git clone git@github.com:LearningOS/rCore-Tutorial-Checker-2024A ci-user
+$ git clone git@github.com:LearningOS/rCore-Tutorial-Test-2024A ci-user/user
+$ git checkout ch<Number>
+$ cd ci-user
+$ make test CHAPTER=<Number>
 ```
-Notice: $ID is from [3,4,5,6,8]
