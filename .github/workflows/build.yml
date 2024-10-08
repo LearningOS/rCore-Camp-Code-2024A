@@ -8,7 +8,7 @@ env:
 
 jobs:
   build-doc:
-    if: github.repository == 'LearningOS/rCore-Tutorial-Code-2024A'
+    if: github.repository == 'LearningOS/rCore-Camp-Code-2024A'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -47,23 +47,8 @@ jobs:
         run: |
           cat output.txt | grep -a "Test passed" | grep -oP "\d{1,}/\d{1,}" | xargs -i echo "points={}"
           cat output.txt | grep -a "Test passed" | grep -oP "\d{1,}/\d{1,}" | xargs -i echo "points={}" >> $GITHUB_OUTPUT
-  gitlab-mirror:
-    if: github.repository == 'LearningOS/rCore-Tutorial-Code-2024A'
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Mirror + trigger CI
-      uses: tkf2019/gitlab-mirror-and-ci-action@master
-      with:
-        args: "https://git.tsinghua.edu.cn/os-lab/2024a/public/rcore-tutorial-code-2024a"
-      env:
-        GITLAB_HOSTNAME: "git.tsinghua.edu.cn"
-        GITLAB_PROJECT_ID: "34689"
-        GITLAB_PROJECT_NAME: "rcore-tutorial-code-2024a"
-        GITLAB_PROJECT_TOKEN: ${{secrets.GITLAB_PROJECT_TOKEN}}
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
   deploy:
-    if: github.repository != 'LearningOS/rCore-Tutorial-Code-2024A'
+    if: github.repository != 'LearningOS/rCore-Camp-Code-2024A'
     name: Deploy to pages
     needs: basic-test
     runs-on: ubuntu-latest
