@@ -52,11 +52,11 @@
     <span class="kw">let </span><span class="kw-2">mut </span>ret;
     <span class="kw">unsafe </span>{
         <span class="macro">asm!</span>(
-            <span class="string">"li x16, 0"</span>,
             <span class="string">"ecall"</span>,
             inlateout(<span class="string">"x10"</span>) arg0 =&gt; ret,
             <span class="kw">in</span>(<span class="string">"x11"</span>) arg1,
             <span class="kw">in</span>(<span class="string">"x12"</span>) arg2,
+            <span class="kw">in</span>(<span class="string">"x16"</span>) <span class="number">0</span>,
             <span class="kw">in</span>(<span class="string">"x17"</span>) which,
         );
     }
