@@ -95,5 +95,5 @@ jobs:
           curl -X POST https://"$post_api" \
             -H "accept: application/json;charset=utf-8" \
             -H "Content-Type: application/json" \
-            -d "$score" \
+            -d "$score_json" \
             -v
